@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CardsService } from '../service/cards.service';
+import { Cards } from '../model/Cards';
+
 
 @Component({
   selector: 'app-cards',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardsComponent implements OnInit {
 
-  constructor() { }
+  listaCards: Cards[];
+
+  constructor(private cardsService: CardsService) { }
 
   ngOnInit(): void {
+  }
+
+  findAllCards(){
+    this.cardsService.getAllCards().subscribe(
+      (resp: Cards[])=>{
+        this.listaCards = resp
+      })
   }
 
 }
