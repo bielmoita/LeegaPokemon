@@ -9,6 +9,8 @@ import { CardsComponent } from './cards/cards.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
+import { VerCardComponent } from './ver-card/ver-card.component';
+
 
 @NgModule({
   declarations: [
@@ -17,12 +19,16 @@ import { HttpClientModule } from '@angular/common/http';
     SobreComponent,
     CardsComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    VerCardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    
+    
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

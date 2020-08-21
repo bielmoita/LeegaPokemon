@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CardsService } from '../service/cards.service';
-import { Cards } from '../model/Cards';
+import { Card } from '../model/Card';
 
 
 @Component({
@@ -9,19 +9,24 @@ import { Cards } from '../model/Cards';
   styleUrls: ['./cards.component.sass']
 })
 export class CardsComponent implements OnInit {
-
-  listaCards: Cards[];
+  cards:any;
+  listaCards: Card[];
 
   constructor(private cardsService: CardsService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+     this.findAllCards()
   }
 
   findAllCards(){
     this.cardsService.getAllCards().subscribe(
-      (resp: Cards[])=>{
+      (resp: Card[])=>{
+        
         this.listaCards = resp
-      })
-  }
+
+        console.log(resp)
+      });
+    }
 
 }
+
